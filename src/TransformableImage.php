@@ -151,6 +151,8 @@ trait TransformableImage
         }
 
         $this->image = Image::make($uploadedFile->getPathName());
+        $originalFormat = $this->image->mime;
+        $quality = 100;
 
         if ($this->autoOrientate) {
             $this->orientateImage();
@@ -164,7 +166,7 @@ trait TransformableImage
             $this->resizeImage();
         }
 
-        $this->image->save();
+        $this->image->save(null, $quality, $originalFormat);
         $this->image->destroy();
     }
 
