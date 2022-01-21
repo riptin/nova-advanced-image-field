@@ -24,6 +24,9 @@
                 ref='cropper'
                 :view-mode="1"
                 :aspect-ratio="field.aspectRatio || NaN"
+                :crop-box-resizable="field.cropBoxResizable"
+                :min-crop-box-width="field.minCropBoxWidth"
+                :min-crop-box-height="field.minCropBoxHeight"
                 :src="imgSrc"
             ></vue-cropper>
 

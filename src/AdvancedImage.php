@@ -78,8 +78,11 @@ class AdvancedImage extends Image
     public function jsonSerialize()
     {
         return array_merge(parent::jsonSerialize(), [
-            'croppable'   => $this->croppable,
-            'aspectRatio' => $this->cropAspectRatio,
+            'croppable'         => $this->croppable,
+            'aspectRatio'       => $this->cropAspectRatio,
+            'cropBoxResizable'  => $this->resizable,
+            'minCropBoxWidth'   => $this->minCropBoxWidth,
+            'minCropBoxHeight'  => $this->minCropBoxHeight
         ]);
     }
 }
