@@ -40,6 +40,13 @@ trait TransformableImage
     private $resizable = true;
 
     /**
+     * Enable zoom on crop window
+     *
+     * @var bool
+     */
+    private $zoomable = false;
+
+    /**
      * The fixed aspect ratio of the crop box.
      *
      * @var float
@@ -105,14 +112,13 @@ trait TransformableImage
      */
     public function croppable($param = true, $minCropBoxWidth = 0, $minCropBoxHeight = 0)
     {
-        if ($minCropBoxWidth > 0 && $minCropBoxHeight > 0) {
-            $this->minCropBoxWidth = $minCropBoxWidth;
-            $this->minCropBoxHeight = $minCropBoxHeight;
-            $param = true;
-        } else if (is_numeric($param)) {
+        if (is_numeric($param)) {
             $this->cropAspectRatio = $param;
             $param = true;
         }
+        
+        $this->minCropBoxWidth = $minCropBoxWidth;
+        $this->minCropBoxHeight = $minCropBoxHeight;
         
         $this->croppable = $param;
 
@@ -122,11 +128,21 @@ trait TransformableImage
     /**
      * Prevent crop box from resizing
      *
-     *
      * @return $this
      */
     public function noCropBoxResize() {
         $this -> resizable = false;
+
+        return $this;
+    }
+
+    /**
+     * Enable zoom in crop box window
+     *
+     * @return $this
+     */
+    public function enableCropZoom() {
+        $this -> zoomable = true;
 
         return $this;
     }

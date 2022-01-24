@@ -25,8 +25,11 @@
                 :view-mode="1"
                 :aspect-ratio="field.aspectRatio || NaN"
                 :crop-box-resizable="field.cropBoxResizable"
-                :min-crop-box-width="field.minCropBoxWidth"
-                :min-crop-box-height="field.minCropBoxHeight"
+                :min-crop-box-width="field.minCropBoxWidth || NaN"
+                :min-crop-box-height="field.minCropBoxHeight || NaN"
+                :zoomable="field.zoomable"
+                :zoom-on-wheel="field.zoomable"
+                :zoom-on-touch="field.zoomable"
                 :src="imgSrc"
             ></vue-cropper>
 

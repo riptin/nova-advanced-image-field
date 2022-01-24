@@ -82,7 +82,8 @@ class AdvancedImage extends Image
             'aspectRatio'       => $this->cropAspectRatio,
             'cropBoxResizable'  => $this->resizable,
             'minCropBoxWidth'   => $this->minCropBoxWidth,
-            'minCropBoxHeight'  => $this->minCropBoxHeight
+            'minCropBoxHeight'  => $this->minCropBoxHeight,
+            'zoomable'          => $this->zoomable
         ]);
     }
 }
